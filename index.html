@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Social App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff0f6;
+      text-align: center;
+      padding: 15px;
+    }
+
+    .profile {
+      background: white;
+      padding: 20px;
+      border-radius: 20px;
+      max-width: 350px;
+      margin: auto;
+    }
+
+    button {
+      background: #ff69a6;
+      color: white;
+      border: none;
+      padding: 12px 22px;
+      border-radius: 20px;
+      font-size: 16px;
+      margin: 8px;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 15px;
+      margin-top: 10px;
+    }
+
+    .post {
+      background: white;
+      padding: 15px;
+      border-radius: 15px;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>My Social App 💗</h1>
+  <h2>Welcome Khushi! 🎀</h2>
+  <p>My first social app ✨</p>
+
+  <div class="profile">
+    <h2>Khushi 🎀</h2>
+    <p>Creating my own world ✨</p>
+    <p>12 Posts | 150 Followers | 100 Following</p>
+
+    <button onclick="followMe()">Follow 💗</button>
+    <p id="followText"></p>
+
+    <h3>My Profile Photo 📸</h3>
+    <input type="file" id="profileFile" accept="image/*">
+    <br>
+    <img id="profilePic" alt="Your profile photo">
+  </div>
+
+
+  <div class="post">
+    <p>Choose a photo to post 💕</p>
+    <input type="file" id="postFile" accept="image/*">
+    <br>
+    <img id="postPic" alt="Your post photo">
+    <p>My beautiful world ✨</p>
+    <button onclick="likePost()">Like ❤️</button>
+    <p id="likeText">0 Likes</p>
+  </div>
+
+  <script>
+    function followMe() {
+      document.getElementById("followText").textContent =
+        "Following! 💗";
+    }
+
+    let likes = 0;
+
+    function likePost() {
+      likes++;
+      document.getElementById("likeText").textContent =
+        likes + " Likes ❤️";
+    }
+
+    document.getElementById("profileFile").onchange = function() {
+      if (this.files[0]) {
+        document.getElementById("profilePic").src =
+          URL.createObjectURL(this.files[0]);
+      }
+    };
+
+    document.getElementById("postFile").onchange = function() {
+      if (this.files[0]) {
+        document.getElementById("postPic").src =
+          URL.createObjectURL(this.files[0]);
+      }
+    };
+  </script>
+
+</body>
+</html>
